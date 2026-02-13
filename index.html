@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Para mi osita hermosa ❤️</title>
+<style>
+    body {
+        text-align: center;
+        font-family: Arial;
+        background-color: #ffe6f0;
+        margin-top: 100px;
+    }
+
+    h1 {
+        color: #ff3399;
+    }
+
+    button {
+        padding: 15px 30px;
+        font-size: 18px;
+        margin: 20px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+    }
+
+    #si {
+        background-color: #ff66b2;
+        color: white;
+    }
+
+    #no {
+        background-color: gray;
+        color: white;
+        position: absolute;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>¿Quieres ser mi Valentín, osita hermosa? 🐻❤️</h1>
+
+<button id="si" onclick="aceptar()">Sí 💖</button>
+<button id="no" onmouseover="mover()">No 😢</button>
+
+<script>
+function aceptar() {
+    document.body.innerHTML = "<h1>Gracias por aceptar, osita hermosa ❤️🥰</h1>";
+}
+
+function mover() {
+    let boton = document.getElementById("no");
+    let x = Math.random() * window.innerWidth;
+    let y = Math.random() * window.innerHeight;
+    boton.style.left = x + "px";
+    boton.style.top = y + "px";
+}
+</script>
+
+</body>
+</html>
