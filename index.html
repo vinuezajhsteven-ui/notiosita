@@ -3,59 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <title>Para mi osita hermosa ❤️</title>
+
 <style>
-    body {
-        text-align: center;
-        font-family: Arial;
-        background-color: #ffe6f0;
-        margin-top: 100px;
-    }
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive;
+    background: linear-gradient(to bottom, #ffd6eb, #ffeef7);
+    overflow: hidden;
+}
 
-    h1 {
-        color: #ff3399;
-    }
+h1 {
+    margin-top: 120px;
+    color: #ff3399;
+    font-size: 32px;
+}
 
-    button {
-        padding: 15px 30px;
-        font-size: 18px;
-        margin: 20px;
-        border-radius: 10px;
-        border: none;
-        cursor: pointer;
-    }
+button {
+    padding: 15px 35px;
+    font-size: 20px;
+    margin: 20px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-    #si {
-        background-color: #ff66b2;
-        color: white;
-    }
+#si {
+    background-color: #ff66b2;
+    color: white;
+}
 
-    #no {
-        background-color: gray;
-        color: white;
-        position: absolute;
+#si:hover {
+    transform: scale(1.1);
+}
+
+#no {
+    background-color: #999;
+    color: white;
+    position: absolute;
+}
+
+.corazon {
+    position: absolute;
+    color: #ff4da6;
+    font-size: 24px;
+    animation: flotar 6s linear infinite;
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(100vh);
+        opacity: 1;
     }
+    100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<h1>¿Quieres ser mi Valentín, osita hermosa? 🐻❤️</h1>
+<h1>¿Quieres ser mi Valentín, osita hermosa? 🐻💕</h1>
 
-<button id="si" onclick="aceptar()">Sí 💖</button>
+<button id="si" onclick="aceptar()">Sí, obvio 💖</button>
 <button id="no" onmouseover="mover()">No 😢</button>
 
 <script>
 function aceptar() {
-    document.body.innerHTML = "<h1>Gracias por aceptar, osita hermosa ❤️🥰</h1>";
+    document.body.innerHTML = `
+    <div style="margin-top:150px;">
+        <h1 style="color:#ff3399;">Gracias por aceptar, osita hermosa 💕🐻</h1>
+        <h2>Prometo llenarte de abrazos, besitos y muchos momentos lindos 💖✨</h2>
+    </div>`;
 }
 
 function mover() {
     let boton = document.getElementById("no");
-    let x = Math.random() * window.innerWidth;
-    let y = Math.random() * window.innerHeight;
+    let x = Math.random() * (window.innerWidth - 100);
+    let y = Math.random() * (window.innerHeight - 50);
     boton.style.left = x + "px";
     boton.style.top = y + "px";
 }
+
+// Crear corazones animados
+function crearCorazon() {
+    const corazon = document.createElement("div");
+    corazon.classList.add("corazon");
+    corazon.innerHTML = "💖";
+    corazon.style.left = Math.random() * window.innerWidth + "px";
+    corazon.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(corazon);
+
+    setTimeout(() => {
+        corazon.remove();
+    }, 6000);
+}
+
+setInterval(crearCorazon, 300);
 </script>
 
 </body>
